@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.TicketCensusPage"
+             xmlns:model="clr-namespace:AbcMobil.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
+    <ContentPage.Content>
+        <StackLayout Margin="12,10,12,10" Spacing="10">
+            <StackLayout Orientation="Horizontal">
+                <Button BackgroundColor = "{StaticResource MyBlue}" Command="{Binding CensusStartCommand}" Text="{Binding CensusStart,Mode=TwoWay}" CornerRadius="5" HorizontalOptions="FillAndExpand"/>
+                <Button BackgroundColor = "{StaticResource MyBlue}" Command="{Binding CensusFinishCommand}" Text="SAYIMI BİTİR" CornerRadius="5"/>
+            </StackLayout>
+            <CollectionView x:Name="listData"  ItemsSource="{Binding SerialList,Mode=TwoWay}" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:StockUI">
+                        <Frame BorderColor="{Binding HeaderColor}">
+                            <xct:Expander >
+                                <xct:Expander.Header>
+                                    <StackLayout Orientation="Horizontal">
+                                        <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1" HorizontalOptions="Start"/>
+                                        <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok adı : "/>
+                                        <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokAdi}"/>
+                                    </StackLayout>
+                                </xct:Expander.Header>
+                                <StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1" HorizontalOptions="Start"/>
+                                        <Label TextColor="{StaticResource MyBlue}" Text="Seri No" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                        <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding SeriNo}"/>
+                                        <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok kodu : "/>
+                                        <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokKodu}"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </xct:Expander>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Grid ColumnDefinitions="4*,2*,4*,2*,*" HeightRequest="30">
+                <Label Grid.Column="2" Text="Etiket sayısı :" FontSize="18"/>
+                <Label Grid.Column="3" Text="{Binding TicketCount,Mode=TwoWay}" FontSize="18" HorizontalOptions="Center"/>
+                <ImageButton Grid.Column="4" BackgroundColor="Transparent" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.searchIcon.png}" Command="{Binding DetailCensust,Mode=TwoWay}"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.TicketSearchPage"
+             xmlns:model="clr-namespace:AbcMobil.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:AbcMobil.ViewModels"
+             xmlns:mcontrol="clr-namespace:AbcMobil.CustomControl">
+    <ContentPage.Content>
+        <Grid Margin="8,8,8,0" RowDefinitions="0.2*,1.3*,16*">
+            <mcontrol:MEntryControl     Grid.Row="1" Grid.Column="0" 
+                                        MText="{Binding SearchText,Mode=TwoWay}" 
+                                        MTitle="{Binding TextTitle,Mode=TwoWay}"
+                                        MTitleFull="True"
+                                        MBorderColor="{StaticResource MyBlue}"
+                                        MTitleColor="{StaticResource MyBlue}"
+                                        MTextColor="{StaticResource MyBlue}"
+                                        MFocusedColor="Orange"
+                                        MPlaceHolderColor="Gray"
+                                        MBackColor="Transparent"
+                                        MFontSize="15"
+                                        MKeyboard="Plain"
+                                        MMaxLenght="13"
+                                        MIsImage="True"
+                                        MImage="AbcMobil.Assets.Icons.searchTxtIcon.png"
+                                        MCommand="{Binding SearchTextCommand}"
+                                        MCommandParameter="Tag"
+                                        MHeight="30"
+                                        MWidth="30" />
+            <RefreshView Grid.Row="2" Grid.Column="0" x:DataType="local:TicketSearchViewModel" Command="{Binding LoadCommand,Mode=TwoWay}" IsRefreshing="{Binding IsBusy,Mode=TwoWay}">
+                <CollectionView x:Name="listData" ItemsSource="{Binding DataList,Mode=TwoWay}" SelectionMode="None" IsGrouped="True" Margin="0">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical"  VerticalItemSpacing="0" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate x:DataType="model:ShelfInfo">
+                            <SwipeView BackgroundColor="Transparent">
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <!-- Item History button -->
+                                        <SwipeItem
+                                            IconImageSource="{xct:ImageResource Id=AbcMobil.Assets.Icons.searchIcon.png}"
+                                            BackgroundColor="{Binding HeaderColor}"
+                                            Command="{Binding BindingContext.SearchCommand, Source={x:Reference listData}}"
+                                            CommandParameter="{Binding .}"/>
+
+                                        <!---->
+                                        <!--IsVisible="{Binding ShowItemDeleteButton}"-->
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <Grid  x:Name="groupTitle" ColumnDefinitions="2*,8*,*" RowDefinitions="*" Margin="0,8,0,0">
+                                    <BoxView Grid.ColumnSpan="3" Color="{Binding HeaderColor}" HeightRequest="1"  HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" />
+                                    <Label   Grid.Column="0"  Text="Stok Adı : " TextColor="{Binding HeaderColor}" BackgroundColor="Transparent" Margin="10,0,0,0"  VerticalOptions="CenterAndExpand"  HorizontalOptions="StartAndExpand"/>
+                                    <Label   Grid.Column="1"  Text="{Binding Title1,Mode=TwoWay}" TextColor="{Binding HeaderColor}" BackgroundColor="Transparent" Margin="10,0,0,0"  VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand"/>
+                                    <Label   Grid.Column="2"  Text="{Binding Amount,Mode=TwoWay}" TextColor="{Binding HeaderColor}" BackgroundColor="Transparent" Margin="0,0,10,0"  VerticalOptions="CenterAndExpand"  HorizontalOptions="EndAndExpand"/>
+                                    <BoxView Grid.Column="0"   Color="{Binding HeaderColor}" WidthRequest="1"  HorizontalOptions="StartAndExpand"/>
+                                    <BoxView Grid.Column="2"  Color="{Binding HeaderColor}" WidthRequest="1"  HorizontalOptions="EndAndExpand" />
+                                    <!--<Grid.GestureRecognizers>
+                                    <TapGestureRecognizer  Command="{Binding BindingContext.TitleCommand, Source={x:Reference listData}}" CommandParameter="{Binding Id}"/>
+                                </Grid.GestureRecognizers>-->
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
+                    <CollectionView.EmptyView>
+                        <StackLayout>
+                            <Label Text="Verileriniz Yükleniyor!" HorizontalOptions="Center" VerticalOptions="End" FontSize="20"/>
+                        </StackLayout>
+                    </CollectionView.EmptyView>
+                    <CollectionView.GroupFooterTemplate>
+                        <DataTemplate x:DataType="model:ShelfInfo">
+                            <BoxView BackgroundColor="{Binding HeaderColor}" HeightRequest="1" WidthRequest="1"  HorizontalOptions="End" VerticalOptions="End" />
+                        </DataTemplate>
+                    </CollectionView.GroupFooterTemplate>
+                    <CollectionView.ItemTemplate >
+                        <DataTemplate x:DataType="model:StockUI">
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout Orientation="Horizontal" Margin="0" Padding="0">
+                                    <Grid ColumnDefinitions="3*,4*,4*,4*" Margin="0" Padding="0">
+                                        <BoxView Grid.Column="0" BackgroundColor="{Binding ContentColor}" WidthRequest="2"  HorizontalOptions="StartAndExpand" VerticalOptions="FillAndExpand" />
+                                        <Label   Grid.Column="0" TextColor="{StaticResource MyBlue}" HorizontalOptions="CenterAndExpand"  VerticalOptions="Center" Text="Seri No : "/>
+                                        <Label   Grid.Column="1" TextColor="{StaticResource MyBlue}" HorizontalOptions="CenterAndExpand"  VerticalOptions="Center" Text="{Binding SeriNo}"/>
+                                        <Label   Grid.Column="2" TextColor="{StaticResource MyBlue}" HorizontalOptions="CenterAndExpand"  VerticalOptions="Center" Text="Stok kodu : "/>
+                                        <Label   Grid.Column="3" TextColor="{StaticResource MyBlue}" HorizontalOptions="CenterAndExpand"  VerticalOptions="Center" Text="{Binding StokKodu}"/>
+                                        <!--<Label   Grid.Column="3" BindingContext="{Binding Source={x:Reference Title}, Path=BindingContext}" Text="{Binding Amount}"/>-->
+                                    </Grid >
+                                </StackLayout>
+                                <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1"  HorizontalOptions="EndAndExpand" VerticalOptions="EndAndExpand" />
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

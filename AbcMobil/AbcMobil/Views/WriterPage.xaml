@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.WriterPage"
+             xmlns:mcontrol="clr-namespace:AbcMobil.CustomControl"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:model="clr-namespace:AbcMobil.Models">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,4*,4*,4*,40*" RowSpacing="10" Margin="12,0,12,0">
+            <mcontrol:MEntryControl     Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                        MText="{Binding TagNo}" 
+                                        MTitle="Tag No"
+                                        MTitleFull="True"
+                                        MBorderColor="{StaticResource MyBlue}"
+                                        MTitleColor="{StaticResource MyBlue}"
+                                        MTextColor="{StaticResource MyBlue}"
+                                        MFocusedColor="Orange"
+                                        MPlaceHolderColor="Gray"
+                                        MBackColor="Transparent"
+                                        MFontSize="15"
+                                        MMaxLenght="13"
+                                        MIsImage="True"
+                                        MImage="AbcMobil.Assets.Icons.searchTxtIcon.png"
+                                        MCommand="{Binding SearchTagCommand}"
+                                        MCommandParameter="Tag"
+                                        MHeight="30"
+                                        MWidth="30"/>
+            <Button Grid.Column="0" Grid.Row="2" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding ReadCommand}" Text="{Binding ReadCard}" CornerRadius="10"/>
+            <Button Grid.Column="1" Grid.Row="2" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding ClearCommand}" Text="Temizle" CornerRadius="10"/>
+            <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding MatchCommand}" Text="Eşleştir" CornerRadius="10"/>
+            <CollectionView Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" ItemsSource="{Binding SeriNoList,Mode=TwoWay}" SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:TagInfo">
+                        <xct:Expander>
+                            <xct:Expander.Header>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Seri No" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding SeriNo}"/>
+                                </StackLayout>
+                            </xct:Expander.Header>
+                            <StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="Id : "/>
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding ID}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="Seri No : "/>
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding SeriNo}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok kodu : "/>
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokKodu}"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="Amount : "/>
+                                    <Label HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding Count}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </xct:Expander>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

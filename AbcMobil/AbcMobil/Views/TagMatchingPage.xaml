@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.TagMatchingPage"
+             xmlns:model="clr-namespace:AbcMobil.Models"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:mcontrol="clr-namespace:AbcMobil.CustomControl">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,4*,4*,4*,40*,2*,*" RowSpacing="10" Margin="12,0,12,0">
+            <mcontrol:MEntryControl     Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                        MText="{Binding TagNo}" 
+                                        MTitle="Tag No"
+                                        MTitleFull="True"
+                                        MBorderColor="{StaticResource MyBlue}"
+                                        MTitleColor="{StaticResource MyBlue}"
+                                        MTextColor="{StaticResource MyBlue}"
+                                        MFocusedColor="Orange"
+                                        MPlaceHolderColor="Gray"
+                                        MBackColor="Transparent"
+                                        MFontSize="15"
+                                        MKeyboard="Plain"
+                                        MMaxLenght="13"
+                                        MIsImage="True"
+                                        MImage="AbcMobil.Assets.Icons.searchTxtIcon.png"
+                                        MCommand="{Binding SearchTagCommand}"
+                                        MCommandParameter="Tag"
+                                        MHeight="30"
+                                        MWidth="30"/>
+            <Button Grid.Column="0" Grid.Row="2" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding ReadCommand}" Text="{Binding ReadCard}" CornerRadius="10"/>
+            <Button Grid.Column="1" Grid.Row="2" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding SearchTagCommand}" Text="Raf Okut" CornerRadius="10"/>
+            <Button Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding MatchCommand}" Text="Eşleştir" CornerRadius="10"/>
+            <CollectionView x:Name="listData" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" ItemsSource="{Binding SeriNoList,Mode=TwoWay}" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:StockUI">
+                        <SwipeView >
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem
+                                            IconImageSource="{xct:ImageResource Id=AbcMobil.Assets.Icons.removeIcon.png}"
+                                            BackgroundColor="Red"
+                                            Command="{Binding BindingContext.ClearDataCommand, Source={x:Reference listData}}"
+                                            CommandParameter="{Binding .}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Frame BorderColor="{Binding HeaderColor}">
+                                <xct:Expander >
+                                    <xct:Expander.Header>
+                                        <StackLayout Orientation="Horizontal">
+                                            <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1" HorizontalOptions="Start"/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok adı : "/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokAdi}"/>
+                                        </StackLayout>
+                                    </xct:Expander.Header>
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1" HorizontalOptions="Start"/>
+                                            <Label TextColor="{StaticResource MyBlue}" Text="Seri No" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding SeriNo}"/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok kodu : "/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokKodu}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </xct:Expander>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ImageButton Grid.Row="5" Grid.Column="1" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.removeIcon.png}" Command="{Binding ClearCommand}" HorizontalOptions="End" WidthRequest="25" HeightRequest="25" BackgroundColor="Red" IsVisible="{Binding ClearVisible,Mode=TwoWay}"/>
+
+            <Label Grid.Row="5" Grid.Column="0" Text="{Binding SeriNoList.Count ,Mode=TwoWay}" TextColor="Black" WidthRequest="10" HeightRequest="25" FontSize="18"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

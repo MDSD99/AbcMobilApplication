@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.TagWritePage"
+             xmlns:mcontrol="clr-namespace:AbcMobil.CustomControl">
+    <ContentPage.Content>
+        <StackLayout>
+            <mcontrol:MEntryControl MText="{Binding SerialNumber}" 
+                                    MTitle="Tag No"
+                                    MTitleFull="True"
+                                    MBorderColor="{StaticResource MyBlue}"
+                                    MTitleColor="{StaticResource MyBlue}"
+                                    MTextColor="{StaticResource MyBlue}"
+                                    MFocusedColor="Orange"
+                                    MPlaceHolderColor="Gray"
+                                    MBackColor="Transparent"
+                                    MFontSize="15"
+                                    MMaxLenght="2"
+                                    MHeight="30"
+                                    MWidth="30"/>
+            <Button Text="Kart Yazdır" Command="{Binding WriteCommand,Mode=TwoWay}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

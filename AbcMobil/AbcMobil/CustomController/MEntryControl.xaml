@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.CustomControl.MEntryControl"
+             xmlns:local="clr-namespace:AbcMobil">
+  <ContentView.Content>
+        <Grid x:Name="layout"  HorizontalOptions="Fill" VerticalOptions="Fill" Margin="0">
+            <Frame  x:Name="frame"
+                    Padding="0" 
+                    CornerRadius="10"
+                    HasShadow="False">
+                <StackLayout Margin="0" 
+                             Padding="0" 
+                             Orientation="Horizontal">
+                    <local:EntryBorderLess x:Name="entry"
+                                           Focused="entry_Focused" 
+                                           Unfocused="entry_Unfocused" 
+                                           HorizontalTextAlignment="Center" 
+                                           VerticalTextAlignment="Center"
+                                           HorizontalOptions="FillAndExpand"/>
+                    <ImageButton x:Name="img" 
+                                 HorizontalOptions="End"
+                                 BackgroundColor="Transparent"/>
+                </StackLayout>
+            </Frame>
+            <Label  x:Name="label"
+                    FontSize="15"
+                    BackgroundColor="White"
+                    HorizontalOptions="Start"
+                    VerticalOptions="Start"
+                    Margin="12,-8,0,0"/>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

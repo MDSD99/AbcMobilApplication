@@ -1,0 +1,194 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\Icons\barcodeGrayIcon.png" />
+    <None Remove="Assets\Icons\barcodeIcon.png" />
+    <None Remove="Assets\Icons\censIcon.png" />
+    <None Remove="Assets\Icons\censusIcon.png" />
+    <None Remove="Assets\Icons\censusReadIcon.png" />
+    <None Remove="Assets\Icons\censusWriteIcon.png" />
+    <None Remove="Assets\Icons\connectGrayIcon.png" />
+    <None Remove="Assets\Icons\connectIcon.png" />
+    <None Remove="Assets\Icons\errorIcon.png" />
+    <None Remove="Assets\Icons\girisGrayIcon.png" />
+    <None Remove="Assets\Icons\girisIcon.png" />
+    <None Remove="Assets\Icons\greenOkeyIcon.png" />
+    <None Remove="Assets\Icons\lockIcon.png" />
+    <None Remove="Assets\Icons\logoutIcon.png" />
+    <None Remove="Assets\Icons\mainIcon.png" />
+    <None Remove="Assets\Icons\okeyIcon.png" />
+    <None Remove="Assets\Icons\placeIcon.png" />
+    <None Remove="Assets\Icons\plusIcon.png" />
+    <None Remove="Assets\Icons\raporGrayIcon.png" />
+    <None Remove="Assets\Icons\raporIcon.png" />
+    <None Remove="Assets\Icons\readGrayIcon.png" />
+    <None Remove="Assets\Icons\readIcon.png" />
+    <None Remove="Assets\Icons\redOkeyIcon.png" />
+    <None Remove="Assets\Icons\removeIcon.png" />
+    <None Remove="Assets\Icons\removeTagIcon.png" />
+    <None Remove="Assets\Icons\scanIcon.png" />
+    <None Remove="Assets\Icons\searchGrayIcon.png" />
+    <None Remove="Assets\Icons\searchIcon.png" />
+    <None Remove="Assets\Icons\searchTxtIcon.png" />
+    <None Remove="Assets\Icons\settingIcon.png" />
+    <None Remove="Assets\Icons\sevkiyatGrayIcon.png" />
+    <None Remove="Assets\Icons\sevkiyatIcon.png" />
+    <None Remove="Assets\Icons\storeImportIcon.png" />
+    <None Remove="Assets\Icons\successIcon.png" />
+    <None Remove="Assets\Icons\tagIcon.png" />
+    <None Remove="Assets\Icons\tagReadIcon.png" />
+    <None Remove="Assets\Icons\tagReplaceIcon.png" />
+    <None Remove="Assets\Icons\tagWriteIcon.png" />
+    <None Remove="Assets\Icons\ticketCensusIcon.png" />
+    <None Remove="Assets\Icons\warningIcon.png" />
+    <None Remove="Assets\Icons\writeGrayIcon.png" />
+    <None Remove="Assets\Icons\writeIcon.png" />
+    <None Remove="Assets\Icons\yellowOkeyIcon.png" />
+    <None Remove="Assets\Images\logo.png" />
+    <None Remove="DLL\DeviceAPI.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Icons\ticketCensusIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Assets\Icons\barcodeGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\barcodeIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\censIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\censusIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\censusReadIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\censusWriteIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\connectGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\connectIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\errorIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\girisGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\girisIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\greenOkeyIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\lockIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\logoutIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\mainIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\okeyIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\placeIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\plusIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\raporGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\raporIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\readGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\readIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\redOkeyIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\removeIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\removeTagIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\searchGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\searchIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\searchTxtIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\settingIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\sevkiyatGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\sevkiyatIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\storeImportIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\successIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\tagIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\tagReadIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\tagReplaceIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\tagWriteIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\warningIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\writeGrayIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\writeIcon.png" />
+    <EmbeddedResource Include="Assets\Icons\yellowOkeyIcon.png" />
+    <EmbeddedResource Include="Assets\Images\logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.14" />
+    <PackageReference Include="Xamarin.CommunityToolkit" Version="1.3.2" />
+    <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.3.2" />
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />  
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="CustomController\MEntryControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CensusPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\deneme.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ReportAddPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ReportSearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\ShellPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\StoreImportPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TagExitPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TagMatchingPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TagProductListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TagReadPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TagReplace.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TagWritePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TempTagNumber.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TicketCensusPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TicketReadPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TicketSearchPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\TicketWritePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\WriterPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+	  <EmbeddedResource Update="Views\TagProductListPage.xaml">
+		  <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	  </EmbeddedResource>
+	
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DLL\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v10.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

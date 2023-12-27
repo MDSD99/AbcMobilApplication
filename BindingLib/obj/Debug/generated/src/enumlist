@@ -1,0 +1,17 @@
+com.uhf.api.cls.GpiTriggerBoundaryReasonType:Com.Uhf.Api.Cls:GpiTriggerBoundaryReasonType
+com.uhf.api.cls.GpiTriggerBoundaryType:Com.Uhf.Api.Cls:GpiTriggerBoundaryType
+com.uhf.api.cls.GpiTrigger_Type:Com.Uhf.Api.Cls:GpiTrigger_Type
+com.uhf.api.cls.R2000_calibration$R2000cmd:Com.Uhf.Api.Cls:R2000_calibration.R2000cmd
+com.uhf.api.cls.R2000_calibration$Region:Com.Uhf.Api.Cls:R2000_calibration.Region
+com.uhf.api.cls.R2000_calibration$SubCmd:Com.Uhf.Api.Cls:R2000_calibration.SubCmd
+com.uhf.api.cls.Reader$BackReadGpiTriState:Com.Uhf.Api.Cls:Reader.BackReadGpiTriState
+com.uhf.api.cls.Reader$CustomCmdType:Com.Uhf.Api.Cls:Reader.CustomCmdType
+com.uhf.api.cls.Reader$Lock_Obj:Com.Uhf.Api.Cls:Reader.Lock_Obj
+com.uhf.api.cls.Reader$Lock_Type:Com.Uhf.Api.Cls:Reader.Lock_Type
+com.uhf.api.cls.Reader$MaindBoard_Type:Com.Uhf.Api.Cls:Reader.MaindBoard_Type
+com.uhf.api.cls.Reader$Module_Type:Com.Uhf.Api.Cls:Reader.Module_Type
+com.uhf.api.cls.Reader$Mtr_Param:Com.Uhf.Api.Cls:Reader.Mtr_Param
+com.uhf.api.cls.Reader$READER_ERR:Com.Uhf.Api.Cls:Reader.READER_ERR
+com.uhf.api.cls.Reader$Reader_Type:Com.Uhf.Api.Cls:Reader.Reader_Type
+com.uhf.api.cls.Reader$Region_Conf:Com.Uhf.Api.Cls:Reader.Region_Conf
+com.uhf.api.cls.Reader$SL_TagProtocol:Com.Uhf.Api.Cls:Reader.SL_TagProtocol

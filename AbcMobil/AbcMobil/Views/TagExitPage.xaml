@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.TagExitPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:mcontrol="clr-namespace:AbcMobil.CustomControl"
+             xmlns:model="clr-namespace:AbcMobil.Models">
+    <ContentPage.Content>
+        <Grid ColumnDefinitions="*,*" RowDefinitions="*,3.5*,40*,2*" RowSpacing="10" Margin="12,0,12,0">
+            <Button Grid.Column="0" Grid.Row="1" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding ReadCommand}" Text="{Binding ReadCard}" CornerRadius="10"/>
+            <Button Grid.Column="1" Grid.Row="1" BackgroundColor = "{StaticResource MyBlue}" Command="{Binding CellExitCommand}" Text="Tagdan Çıkart" CornerRadius="10"/>
+            <CollectionView x:Name="listData" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" ItemsSource="{Binding SeriNoList,Mode=TwoWay}" SelectionMode="None">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="5"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:StockUI">
+                        <SwipeView >
+                            <SwipeView.RightItems>
+                                <SwipeItems>
+                                    <SwipeItem
+                                            IconImageSource="{xct:ImageResource Id=AbcMobil.Assets.Icons.removeIcon.png}"
+                                            BackgroundColor="Red"
+                                            Command="{Binding BindingContext.ClearDataCommand, Source={x:Reference listData}}"
+                                            CommandParameter="{Binding .}"/>
+                                </SwipeItems>
+                            </SwipeView.RightItems>
+                            <Frame BorderColor="{Binding HeaderColor}">
+                                <xct:Expander >
+                                    <xct:Expander.Header>
+                                        <StackLayout Orientation="Horizontal">
+                                            <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1" HorizontalOptions="Start"/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok adı : "/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokAdi}"/>
+                                        </StackLayout>
+                                    </xct:Expander.Header>
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <BoxView BackgroundColor="{Binding HeaderColor}" WidthRequest="1" HorizontalOptions="Start"/>
+                                            <Label TextColor="{StaticResource MyBlue}" Text="Seri No" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding SeriNo}"/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="Stok kodu : "/>
+                                            <Label TextColor="{StaticResource MyBlue}" HorizontalOptions="Center"  VerticalOptions="Center" Text="{Binding StokKodu}"/>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </xct:Expander>
+                            </Frame>
+                        </SwipeView>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <ImageButton Grid.Row="3" Grid.Column="1" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.removeIcon.png}" Command="{Binding ClearCommand}" HorizontalOptions="End" WidthRequest="25" HeightRequest="25" BackgroundColor="Red" IsVisible="{Binding ClearVisible,Mode=TwoWay}"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

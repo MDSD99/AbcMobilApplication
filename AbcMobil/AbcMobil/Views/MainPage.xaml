@@ -1,0 +1,383 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:effects="clr-namespace:AbcMobil.Assets.Effects"
+             x:Class="AbcMobil.Views.MainPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             Shell.NavBarIsVisible="false">
+    <ContentPage.Content>
+        <StackLayout x:Name="mainLayout">
+            <Frame Margin="0,-10,0,0" Padding="0"  BackgroundColor="{StaticResource MyBlue}" CornerRadius="10">
+                <Frame.Background>
+                    <LinearGradientBrush StartPoint="0,75"
+                             EndPoint="1,0">
+                        <GradientStop Color="{StaticResource MyLightBlue}"
+                          Offset="0.1"/>
+                        <GradientStop Color="{StaticResource MyBlue}"
+                          Offset="1.0"/>
+                    </LinearGradientBrush>
+                </Frame.Background>
+                <StackLayout VerticalOptions="Center">
+                    <Label FontSize="45"  TextColor="White" FontAttributes="Bold" Padding="20,40,20,20" HorizontalOptions="Center" Text="Qent-Soft"/>
+                    <Label FontSize="30"  TextColor="White" FontAttributes="Bold" Padding="20,0,20,40" HorizontalOptions="Center" Text="Rfid Uygulaması"/>
+                </StackLayout>
+            </Frame>
+            <ScrollView>
+                <Grid Margin="5" Padding="0,30,0,10" ColumnDefinitions="*,*,*" RowDefinitions="*,*,*,*" RowSpacing="20" ColumnSpacing="10">
+                    <Frame Grid.Column="0" Grid.Row="0" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.censusIcon.png}" />
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Sayım" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="Census"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnTagSayım"
+                            Source="info.png"
+                            WidthRequest="20"
+                            HeightRequest="20"
+                            VerticalOptions="Start"
+                            HorizontalOptions="End" 
+                            effects:TooltipEffect.Position="Bottom"
+                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+                            effects:TooltipEffect.Text="Okunan tüm rafların içindeki ürünlerin bilgilerini getirir." 
+                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="0" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.censIcon.png}" />
+                                <Label Text="Etiket" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Sayım" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TicketCensus"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnEtiketSayım"
+                            Source="info.png"
+                            WidthRequest="20"
+                            HeightRequest="20"
+                            VerticalOptions="Start"
+                            HorizontalOptions="End" 
+                            effects:TooltipEffect.Position="Bottom"
+                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+                            effects:TooltipEffect.Text="Okunan Etiketlerin ürün bilgilerini liste halinde getirir." 
+                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="2" Grid.Row="0" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <Image x:Name="btnEtiketAra"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="İstenen etiketin ürün bilgisini verir." 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.searchIcon.png}" />
+                                <Label Text="Etiket" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Ara" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TicketSearch"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="1" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" Margin="-15,-15,-15,-15">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" HorizontalOptions="StartAndExpand" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.placeIcon.png}" />
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Yerleştir" TextColor="{StaticResource MyBlue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="18" Margin="0,0,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="ShelfMatching"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnTagYerleştir"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Depoda bulunan ürünlerin raflara yerleştirilmesini sağlar." 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="1" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.censusReadIcon.png}" />
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Oku" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="ShelfRead"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnTagOku"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Okunan rafın seri numarasının bilgisini verir." 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="2" Grid.Row="1" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" Margin="-10,-10,-10,-10">
+                            <Image x:Name="btnTagYazdır"
+                                Source="info.png"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                VerticalOptions="Start"
+                                HorizontalOptions="End" 
+                                effects:TooltipEffect.Position="Bottom"
+                                effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+                                effects:TooltipEffect.Text="Okunan Barkodu Raf'a yazdırmayı sağlar."
+                                effects:TooltipEffect.HasTooltip="True"/>
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.censusWriteIcon.png}" />
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Yazdır" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="ShelfWrite"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="2" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.tagReadIcon.png}" />
+                                <Label Text="Etiket" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Oku" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TicketRead"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnEtiketOku"
+                                Source="info.png"
+                                WidthRequest="20"
+                                HeightRequest="20"
+                                VerticalOptions="Start"
+                                HorizontalOptions="End" 
+                                effects:TooltipEffect.Position="Bottom"
+                                effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+                                effects:TooltipEffect.Text="Etiketi okunan ürünün kayıtlı seri numarası bilgisini verir." 
+                                effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="2" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.tagWriteIcon.png}" />
+                                <Label Text="Etiket" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Yazdır" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TicketWrite"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnEtiketYazdır"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Okunan Barkodu Etikete Yazdırmayı sağlar." 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <!--<Frame Grid.Column="2" Grid.Row="2" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout>
+                            <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.censusWriteIcon.png}" />
+                            <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                            <Label Text="Yazdır" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                        </StackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="ShelfReplace"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>-->
+                    <Frame Grid.Column="0" Grid.Row="3" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.tagReplaceIcon.png}" />
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Çıkart" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TagExit"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnTagÇıkart"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Okunan etiketlerin raf'dan çıkarılmasını sağlar." 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="3" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.raporIcon.png}" />
+                                <Label Text="Rapor" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,10,0,0"/>
+                                <!--<StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="Rapor"/>
+                                </StackLayout.GestureRecognizers>-->
+                            </StackLayout>
+                            <Image x:Name="btnRapor"
+	                        Source="info.png"
+	                        WidthRequest="20"
+	                        HeightRequest="20"
+	                        VerticalOptions="Start"
+	                        HorizontalOptions="End" 
+	                        effects:TooltipEffect.Position="Bottom"
+	                        effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                        effects:TooltipEffect.Text="Raport" 
+	                        effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="2" Grid.Row="3" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" Margin="-3,-3,-3,-3">
+                            <Image x:Name="btnAyarlar"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Ayarlar" 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}" />
+                                <Label Text="Ayarlar" TextColor="{StaticResource MyBlue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="17" Margin="0,10,0,0"/>
+                                <!--<StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="Settings"/>
+                                </StackLayout.GestureRecognizers>-->
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame  Grid.Column="2" Grid.Row="2"  WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="End" CornerRadius="10" HasShadow="True" >
+                        <StackLayout Orientation="Horizontal" Margin="-10,-10,-10,-10">
+                            <Image x:Name="btnDepoEkle"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Depo Ekle" 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.censIcon.png}" />
+                                <Label Text="Depo" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Ekle" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <!--<TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="StoreImport"/>-->
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="4" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="10" HasShadow="True">
+                        <StackLayout Margin="0,-10,0,0">
+                            <Image HorizontalOptions="End" WidthRequest="10" HeightRequest="10" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.lockIcon.png}" />
+                            <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.searchGrayIcon.png}" />
+                            <Label Text="Arama" TextColor="{StaticResource MyGray}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="2" Grid.Row="4" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="10" HasShadow="True">
+                        <StackLayout Margin="0,-10,0,0">
+                            <Image HorizontalOptions="End" WidthRequest="10" HeightRequest="10" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.lockIcon.png}" />
+                            <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.connectGrayIcon.png}" />
+                            <Label Text="Bağlantı" TextColor="{StaticResource MyGray}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="5" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="10" HasShadow="True">
+                        <StackLayout Margin="0,-10,0,0">
+                            <Image HorizontalOptions="End" WidthRequest="10" HeightRequest="10" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.lockIcon.png}" />
+                            <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.sevkiyatGrayIcon.png}" />
+                            <Label Text="Sevkiyat" TextColor="{StaticResource MyGray}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="1" Grid.Row="5" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="10" HasShadow="True">
+                        <StackLayout Margin="0,-10,0,0">
+                            <Image HorizontalOptions="End" WidthRequest="10" HeightRequest="10" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.lockIcon.png}" />
+                            <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.raporGrayIcon.png}" />
+                            <Label Text="Rapor" TextColor="{StaticResource MyGray}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="4" WidthRequest="75" HeightRequest="75" HorizontalOptions="Center" VerticalOptions="Start"  CornerRadius="7" HasShadow="True">
+                        <StackLayout Margin="0,-10,0,0">
+                            <Image HorizontalOptions="End" WidthRequest="10" HeightRequest="10" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.lockIcon.png}" />
+                            <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.girisGrayIcon.png}" />
+                            <Label Text="Giriş" TextColor="{StaticResource MyGray}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,10,0,0"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="5" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" Margin="-6,-6,-6,-6">
+                            <StackLayout HorizontalOptions="Start" >
+                                <Image WidthRequest="30" HeightRequest="30" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.placeIcon.png}" />
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Listele" TextColor="{StaticResource MyBlue}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="18" Margin="0,-8,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TagProductList"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnTagListele"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Okunan rafın içindeki ürünlerin bilgisini verir." 
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Grid.Column="0" Grid.Row="4" WidthRequest="75" HorizontalOptions="Center" VerticalOptions="Start" CornerRadius="7" HasShadow="True">
+                        <StackLayout Orientation="Horizontal" Margin="-10,-10,-10,-10">
+                            <StackLayout HorizontalOptions="Start">
+                                <Image WidthRequest="30" HeightRequest="30" HorizontalOptions="StartAndExpand" Source="{xct:ImageResource Id=AbcMobil.Assets.Icons.placeIcon.png}" />
+                                <Label Text="Gecici" TextColor="{StaticResource MyBlue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="18" Margin="0,5,0,0"/>
+                                <Label Text="Tag" TextColor="{StaticResource MyBlue}" HorizontalOptions="StartAndExpand" VerticalOptions="Center" FontSize="18" Margin="0,0,0,0"/>
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding PageOpen}" CommandParameter="TempNumberTag"/>
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <Image x:Name="btnGeciciTag"
+	                            Source="info.png"
+	                            WidthRequest="20"
+	                            HeightRequest="20"
+	                            VerticalOptions="Start"
+	                            HorizontalOptions="End" 
+	                            effects:TooltipEffect.Position="Bottom"
+	                            effects:TooltipEffect.BackgroundColor="DeepSkyBlue"
+	                            effects:TooltipEffect.Text="Depoda bulunan ve KBUFFER'da henüz atılmamış ürünlerin raflara yerleştirilmesini sağlar."
+	                            effects:TooltipEffect.HasTooltip="True"/>
+                        </StackLayout>
+                    </Frame>
+
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

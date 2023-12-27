@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AbcMobil.Views.ShellPage"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:local="clr-namespace:AbcMobil.Views"
+             FlyoutWidth="300">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource MyBlue}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource MyBlue}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+                <Setter  Property="Shell.FlyoutIsPresented" Value="False"/>
+                <Setter Property="Shell.NavBarIsVisible" Value="False"/>
+                
+              <!--
+                <Setter Property="Shell.FlyoutBackdrop" Value="False"/>-->
+                <!--<Setter Property="Shell.flyoutv" Value="False"/>-->
+                    <!--<Setter Property="Shell.NavBarIsVisible" Value="False"/>-->
+                    <!--<Setter Property="Shell.flyo" Value="False"/>-->
+            </Style>
+            <Style ApplyToDerivedTypes="True" Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+            </Style>
+            <Style ApplyToDerivedTypes="True" Class="FlyoutItemIconStyle" TargetType="Image">
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="HeightRequest" Value="30"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource MyBlue}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MyLightBlue}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.Margin" Value="20,0,0,0" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            <Style Class="MenuItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource MyBlue}" />
+                                    <Setter Property="AbsoluteLayout.Margin" Value="40,0,0,0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="White" />
+                                    <Setter Property="BackgroundColor" Value="{StaticResource MyBlue}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
+    <Shell.FlyoutHeaderTemplate HeightRequest="450">
+        <DataTemplate >
+            <StackLayout Margin="0,40,0,0"  HorizontalOptions="Center">
+                <Image HeightRequest="150" Aspect="AspectFill" Source="{xct:ImageResource Id=AbcMobil.Assets.Images.logo.png}"/>
+                <StackLayout  Margin="0,40,0,40" Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Margin="10" Text="Qent Soft" FontSize="30" HorizontalOptions="Start"/>
+                    <BoxView WidthRequest="1" HeightRequest="1" Color="Black"/>
+                    <Label Margin="10" Text="Rfid" FontSize="30"/>
+                </StackLayout>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+    <FlyoutItem  Title="Ana Menu" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.mainIcon.png}">
+        <ShellContent Title="Ana Menu" Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tag Say" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.censusIcon.png}">
+        <ShellContent Title="CensusPage" Route="CensusPage" ContentTemplate="{DataTemplate local:CensusPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Etiket Say" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.censIcon.png}">
+        <ShellContent Title="TicketCensusPage" Route="TicketCensusPage" ContentTemplate="{DataTemplate local:TicketCensusPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Etiket Ara" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.searchIcon.png}">
+        <ShellContent Title="TicketSearchPage" Route="TicketSearchPage" ContentTemplate="{DataTemplate local:TicketSearchPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tag Yerleştir" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.placeIcon.png}">
+        <ShellContent Title="TagMatching" Route="TagMatchingPage" ContentTemplate="{DataTemplate local:TagMatchingPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tag Oku" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.censusReadIcon.png}">
+        <ShellContent Title="TagReadPage" Route="TagReadPage" ContentTemplate="{DataTemplate local:TagReadPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Tag Yazdır" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="TagWritePage" Route="TagWritePage" ContentTemplate="{DataTemplate local:TagWritePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Etiket Oku" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.tagReadIcon.png}">
+        <ShellContent Title="TicketReadPage" Route="TicketReadPage" ContentTemplate="{DataTemplate local:TicketReadPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Etiket Yazdır" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="TicketWritePage" Route="TicketWritePage" ContentTemplate="{DataTemplate local:TicketWritePage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Gecici Tag" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="TempTagNumber" Route="TempTagNumber" ContentTemplate="{DataTemplate local:TempTagNumber}" />
+    </FlyoutItem>
+    
+    
+    <FlyoutItem Title="Gecici Tag" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="TagProductListPage" Route="TagProductListPage" ContentTemplate="{DataTemplate local:TagProductListPage}" />
+    </FlyoutItem>
+    
+    
+    
+    <FlyoutItem Title="Tag Çıkart" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="TagExitPage" Route="TagExitPage" ContentTemplate="{DataTemplate local:TagExitPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Rapor" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="Tagı boş olanlar" Route="ReportSearchPage" ContentTemplate="{DataTemplate local:ReportSearchPage}" Icon="{xct:ImageResource Id=AbcMobil.Assets.Icons.searchIcon.png}" />
+        <ShellContent Title="Seçileni ekle" Route="ReportAddPage" ContentTemplate="{DataTemplate local:ReportAddPage}" Icon="{xct:ImageResource Id=AbcMobil.Assets.Icons.plusIcon.png}"/>
+    </FlyoutItem>
+    <FlyoutItem Title="Ayarlar" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="SettingsPage" Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </FlyoutItem>
+    <!--<FlyoutItem Title="Barcode" Style="{StaticResource BaseStyle}" FlyoutIcon="{xct:ImageResource Id=AbcMobil.Assets.Icons.settingIcon.png}">
+        <ShellContent Title="BarcodePage" Route="BarcodePage" ContentTemplate="{DataTemplate local:BarcodePage}" />
+    </FlyoutItem>-->
+    <MenuItem Text="Çıkış Yap" StyleClass="MenuItemLayoutStyle" Clicked="MenuItem_Clicked" IconImageSource="{xct:ImageResource Id=AbcMobil.Assets.Icons.logoutIcon.png}">
+    </MenuItem>
+</Shell>
